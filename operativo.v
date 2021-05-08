@@ -1,0 +1,5 @@
+module operativo (
+    
+);
+
+endmodule

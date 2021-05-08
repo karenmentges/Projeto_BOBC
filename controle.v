@@ -1,35 +1,54 @@
 module controle (
     input ck,
-    input w,
+    input inicio,
+    input pronto,
     input rst,
-    output c1,
-    output c2,
-    output c3,
-    output h1,
-    output h2,
-    output h3,
+    output lx,
+    output m0,
+    output m1,
+    output m2,
+    output h,
+    output ls,
+    output lh,
     output done
 );
 
 reg [1:0] state;
 
-parameter A = 0, B = 1, C = 2, D = 3;
+parameter A = 0, B = 1, C = 2, D = 3, E = 4, F = 5, G = 6, H = 7, I = 8, J = 9;
 
-assign c1 = state == D;
-assign c2 = state == C;
-assign c3 = state == B;
-assign h1 = state == C;
-assign h2 = state == B;
-assign h3 = state == D;
-assign done = state == A;
+always @(*) begin
+    case (state)
+    A : begin
+        lx=1'b0; m0=2'b00; m1=2'b00; m2=2'b00; h=1'b0; ls=1'b0; lh=1'b0; done=1'b0;
+    B : begin
+        lx=1'b1; m0=2'b01; m1=2'b00; m2=2'b00; h=1'b1; ls=1'b0; lh=1'b0; done=1'b0;
+    C : begin
+        lx=1'b0; m0=2'b01; m1=2'b00; m2=2'b00; h=1'b1; ls=1'b0; lh=1'b1; done=1'b0;
+    D : begin
+        lx=1'b0; m0=2'b10; m1=2'b00; m2=2'b11; h=1'b0; ls=1'b0; lh=1'b0; done=1'b0;
+    E : begin
+        lx=1'b0; m0=2'b10; m1=2'b00; m2=2'b11; h=1'b0; ls=1'b0; lh=1'b1; done=1'b0;
+    F : begin
+        lx=1'b0; m0=2'b00; m1=2'b01; m2=2'b11; h=1'b1; ls=1'b0; lh=1'b0; done=1'b0;
+    G : begin
+        lx=1'b0; m0=2'b00; m1=2'b01; m2=2'b11; h=1'b1; ls=1'b0; lh=1'b1; done=1'b0;
+    H : begin
+        lx=1'b0; m0=2'b11; m1=2'b00; m2=2'b11; h=1'b0; ls=1'b0; lh=1'b0; done=1'b0;
+    I : begin
+        lx=1'b0; m0=2'b11; m1=2'b00; m2=2'b11; h=1'b0; ls=1'b1; lh=1'b0; done=1'b0;
+    J : begin
+        lx=1'b0; m0=2'b00; m1=2'b00; m2=2'b00; h=1'b0; ls=1'b0; lh=1'b0; done=1'b1;
+    endcase
+end
 
-always @( posedge ck or rst) begin //Clock na borda de subida
+always @(posedge ck or rst) begin //Clock na borda de subida
     if(rst == 1) 
         state <= A;
     else begin
         case (state)
             A : begin
-                state <= w == 0 ? A : B;
+                state <= B;
             end
             B : begin
                 state <= C;
@@ -38,6 +57,24 @@ always @( posedge ck or rst) begin //Clock na borda de subida
                 state <= D;
             end
             D : begin
+                state <= E;
+            end
+            E : begin
+                state <= F;
+            end
+            F : begin
+                state <= G;
+            end
+            G : begin
+                state <= H;
+            end
+            H : begin
+                state <= I;
+            end
+            I : begin
+                state <= J;
+            end
+            J : begin
                 state <= A;
             end
         endcase    
