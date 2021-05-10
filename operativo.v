@@ -9,10 +9,10 @@ module operativo (
     input ls,
     input lh,
     input done,
-    input X,
-    input A,
-    input B,
-    input C,
+    input [7:0] X,
+    input [15:0] A,
+    input [15:0] B,
+    input [15:0] C,
     output [15:0] Resultado
 );
 
@@ -23,6 +23,7 @@ reg [15:0] Reg_H;
 parameter Valor1 = 15'b0000000000000000, Valor2 = 15'b0000000000000000;
 
 
+
 always @(posedge ck or rst) begin //Clock na borda de subida
     if(lx == 1)
         Reg_X <= X;
@@ -31,7 +32,7 @@ always @(posedge ck or rst) begin //Clock na borda de subida
     case (m1)
         00 : begin
             if(m0 == 00)
-                Valor1 = 15'b0000000000000000;
+                Valor1 <= 15'b0000000000000000;
             end
             else if(m0 == 01)
                 Valor1 <= A;
@@ -60,7 +61,7 @@ always @(posedge ck or rst) begin //Clock na borda de subida
         end
         01 : begin
             if(m0 == 00)
-                Valor2 = 15'b0000000000000000;
+                Valor2 <= 15'b0000000000000000;
             end
             else if(m0 == 01)
                 Valor2 <= A;
@@ -97,9 +98,9 @@ always @(posedge ck or rst) begin //Clock na borda de subida
     end
 
     if(rst == 1) 
-        Reg_X = 15'b0000000000000000;
-        Reg_S = 15'b0000000000000000;
-        Reg_H = 15'b0000000000000000;
+        Reg_X <= 15'b0000000000000000;
+        Reg_S <= 15'b0000000000000000;
+        Reg_H <= 15'b0000000000000000;
     end
     else if(done = 1)
         assign Resultado = Reg_S;
