@@ -1,5 +1,7 @@
 module testbench;
 
+parameter X = 2, A = 3, B = 4, C = 5;
+
 reg ck = 0, rst = 0, w = 0;
 wire done1, done2;
 

@@ -2,27 +2,25 @@ module operativo (
     input ck,
     input rst,
     input lx,
-    input m0,
-    input m1,
-    input m2,
+    input [1:0] m0,
+    input [1:0] m1,
+    input [1:0] m2,
     input h,
     input ls,
     input lh,
     input done,
-    //input X,
-    //input A,
-    //input B,
-    //input C,
-    output Resultado
+    input X,
+    input A,
+    input B,
+    input C,
+    output [15:0] Resultado
 );
 
 reg [15:0] Reg_X;
 reg [15:0] Reg_S;
 reg [15:0] Reg_H;
-reg [15:0] Valor1;
-reg [15:0] Valor2;
 
-parameter X = 2, A = 3, B = 4, C = 5;
+parameter Valor1 = 15'b0000000000000000, Valor2 = 15'b0000000000000000;
 
 
 always @(posedge ck or rst) begin //Clock na borda de subida
@@ -33,16 +31,16 @@ always @(posedge ck or rst) begin //Clock na borda de subida
     case (m1)
         00 : begin
             if(m0 == 00)
-            Valor1 = 0000000000000000;
+                Valor1 = 15'b0000000000000000;
             end
             else if(m0 == 01)
-            Valor1 <= A;
+                Valor1 <= A;
             end
             else if(m0 == 10)
-            Valor1 <= B;
+                Valor1 <= B;
             end
             else if(m0 == 11)
-            Valor1 <= C;
+                Valor1 <= C;
             end
         end
         01 : begin
@@ -62,16 +60,16 @@ always @(posedge ck or rst) begin //Clock na borda de subida
         end
         01 : begin
             if(m0 == 00)
-            Valor2 = 0000000000000000;
+                Valor2 = 15'b0000000000000000;
             end
             else if(m0 == 01)
-            Valor2 <= A;
+                Valor2 <= A;
             end
             else if(m0 == 10)
-            Valor2 <= B;
+                Valor2 <= B;
             end
             else if(m0 == 11)
-            Valor2 <= C;
+                Valor2 <= C;
             end
         end
         10 : begin
@@ -87,24 +85,24 @@ always @(posedge ck or rst) begin //Clock na borda de subida
             Valor1 <= Valor1 + Valor2;
         end
         1 : begin
-            valor1 <= Valor1 * Valor2;
+            Valor1 <= Valor1 * Valor2;
         end
     endcase 
 
     if(ls == 1)
-        Reg_S = ;
+        Reg_S <= Valor1;
     end
     else if(lh == 1)
-        Reg_H = ;
+        Reg_H <= Valor1;
     end
 
     if(rst == 1) 
-        Reg_X = 0000000000000000;
-        Reg_S = 0000000000000000;
-        Reg_H = 0000000000000000;
+        Reg_X = 15'b0000000000000000;
+        Reg_S = 15'b0000000000000000;
+        Reg_H = 15'b0000000000000000;
     end
     else if(done = 1)
-        Resultado <= Reg_S;
+        assign Resultado = Reg_S;
     end
     
 end
