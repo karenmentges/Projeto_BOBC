@@ -6,6 +6,5 @@ module reg(
     if(l == 1){
         assign reg = v1;
     }
-    
 
 endmodule

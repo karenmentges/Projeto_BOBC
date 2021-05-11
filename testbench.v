@@ -1,29 +1,14 @@
 module testbench;
 
-parameter X = 2, A = 3, B = 4, C = 5;
-reg ck = 0, inicio = 0, pronto = 0, rst = 0;
+parameter ck, inicio, pronto, rst;
+parameter [15:0] X = ;
+parameter [15:0] A = ;
+parameter [15:0] B = ;
+parameter [15:0] C = ;
 
-wire lx, h, ls, lh, done;
-wire [1:0] m0, m1, m2; 
+wire [15:0] Resultado;
 
-input ck,
-    input rst,
-    input lx,
-    input [1:0] m0,
-    input [1:0] m1,
-    input [1:0] m2,
-    input h,
-    input ls,
-    input lh,
-    input done,
-    input [7:0] X,
-    input [15:0] A,
-    input [15:0] B,
-    input [15:0] C,
-    output [15:0] Resultado
-
-controle c();
-operativo op();
+projeto(ck, inicio, pronto, rst, X, A, B, C, Resultado);
 
 ///////////////////////////////////////
 
