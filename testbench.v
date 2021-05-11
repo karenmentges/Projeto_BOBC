@@ -7,42 +7,28 @@ parameter [15:0] B = ;
 parameter [15:0] C = ;
 
 wire [15:0] Resultado;
+wire LED;
 
-projeto(ck, inicio, pronto, rst, X, A, B, C, Resultado);
+projeto p(ck, inicio, pronto, rst, X, A, B, C, Resultado, LED);
 
-///////////////////////////////////////
 
-wire done1, done2;
-
-wire [5:0] barramento1;
-
-swap s1(
-    barramento1,
-    ck,
-    rst,
-    w,
-    done1
-);
-
-swap2 s2(
-    ck,
-    rst,
-    w,
-    done2
-);
-
-always #2 ck <= ~ck;
+always #1 ck <= ~ck;
 
 initial begin
     $dumpvars;
-    rst <= 1;
-    #10;
+    #1
+    inicio <= 0;
+    pronto <= 0;
     rst <= 0;
-    #10;
-    w <= 1;
-    #4;
-    w <= 0;
-    # 20;
+    #3;
+    inicio <= 1;
+    #5;
+    inicio <= 0;
+    #19;
+    pronto <= 1;
+    #21;
+    pronto <= 0;
+    rst <= 1;
     $finish;
 
 end

@@ -27,7 +27,7 @@ module operativo (
 
 always @(posedge ck or rst) begin //Clock na borda de subida
     
-    reg R1(X, lx, Reg_X);
+    reg R1(rst, X, lx, Reg_X);
 
     mux M0(Zero, A, B, C, m0, outm0);
     mux M1(outm0, Reg_X, Reg_S, Reg_H, m1, outm1);
@@ -35,8 +35,8 @@ always @(posedge ck or rst) begin //Clock na borda de subida
     
     ula U(outm1, outm2, h, Resultado);
 
-    reg R2(Resultado, ls, Reg_S);
-    reg R3(Resultado, lh, Reg_H);
+    reg R2(rst, Resultado, ls, Reg_S);
+    reg R3(rst, Resultado, lh, Reg_H);
     
 
 end
