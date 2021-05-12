@@ -8,13 +8,15 @@ module regg(
     parameter Zero = 16'b0000000000000000;
 
     always @ (rst or l or v) begin
-        case(rst)
-            1'b1 : r = Zero;
-        endcase
+        
+        if(rst == 1) begin
+            r = Zero;
+        end
 
-        case(l)
-            1'b1 : r = v;
-        endcase
+        if(l == 1) begin
+            r = v;
+        end
+        
     end
     
 

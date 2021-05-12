@@ -3,14 +3,14 @@ module controle (
     input inicio,
     input pronto,
     input rst,
-    output lx,
-    output[1:0] m0,
-    output[1:0] m1,
-    output[1:0] m2,
-    output h,
-    output ls,
-    output lh,
-    output done
+    output reg lx,
+    output reg [1:0] m0,
+    output reg [1:0] m1,
+    output reg [1:0] m2,
+    output reg h,
+    output reg ls,
+    output reg lh,
+    output reg done
 );
 
 reg [1:0] state = 1'b0; // inicializa em A
