@@ -27,7 +27,7 @@ module testbench;
         #18;
         pronto <= 1;
         #2;
-        pronto <= 0;
+        pronto <= 0; //pronto
         rst <= 1;
         $finish;
 
