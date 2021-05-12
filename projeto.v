@@ -15,6 +15,6 @@ module projeto(
     wire [1:0] m0, m1, m2; 
 
     controle c(ck, inicio, rst, lx, m0, m1, m2, h, ls, lh, pronto);
-    operativo op(ck, rst, lx, m0, m1, m2, h, ls, lh, pronto, X, A, B, C, Resultado);
+    operativo op(ck, rst, lx, m0, m1, m2, h, ls, lh, pronto, X, A, B, C, overflow, Resultado);
 
 endmodule

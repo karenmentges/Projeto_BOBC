@@ -2,9 +2,15 @@ module ula(
     input [15:0] v1,
     input [15:0] v2,
     input h,
-    output [15:0] r
+    output reg overflow,
+    output reg [15:0] r
 );
 
-    assign r = h ? v1 * v2 : v1 + v2;
+    always @ (h or v1 or v2) begin
+        case(h)
+            1'b0 : {overflow, r} = v1 + v2;
+            1'b1 : {overflow, r} = v1 * v2;
+        endcase
+    end
 
 endmodule

@@ -13,6 +13,7 @@ module operativo (
     input [15:0] A,
     input [15:0] B,
     input [15:0] C,
+    output overflow,
     output [15:0] Resultado
 );
 
@@ -26,7 +27,7 @@ module operativo (
     mux M1(outm0, RegX, RegS, RegH, m1, outm1);
     mux M2(RegX, outm0, RegS, RegH, m2, outm2);
     
-    ula U(outm1, outm2, h, res);
+    ula U(outm1, outm2, h, overflow, res);
 
     regg R2(ck, rst, res, ls, RegS);
     regg R3(ck, rst, res, lh, RegH);
