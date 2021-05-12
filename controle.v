@@ -1,7 +1,6 @@
 module controle (
     input ck,
     input inicio,
-    input pronto,
     input rst,
     output reg lx,
     output reg [1:0] m0,
@@ -10,7 +9,7 @@ module controle (
     output reg h,
     output reg ls,
     output reg lh,
-    output reg done
+    output reg pronto
 );
 
 reg [3:0] state = 4'b0000; // inicializa em A
@@ -31,7 +30,7 @@ always @(posedge ck or rst) begin //Clock na borda de subida
                 h <= 1'b0; 
                 ls <= 1'b0;
                 lh <= 1'b0;
-                done <= 1'b0;
+                pronto <= 1'b0;
                 if(inicio == 1) begin
                     state <= B;
                 end
@@ -47,7 +46,7 @@ always @(posedge ck or rst) begin //Clock na borda de subida
                 h <= 1'b1; 
                 ls <= 1'b0; 
                 lh <= 1'b0; 
-                done <= 1'b0;
+                pronto <= 1'b0;
                 state <= C;
             end
             C : begin
@@ -58,7 +57,7 @@ always @(posedge ck or rst) begin //Clock na borda de subida
                 h <= 1'b1;
                 ls <= 1'b0;
                 lh <= 1'b1;
-                done <= 1'b0;
+                pronto <= 1'b0;
                 state <= D;
             end
             D : begin
@@ -69,7 +68,7 @@ always @(posedge ck or rst) begin //Clock na borda de subida
                 h <= 1'b0;
                 ls <= 1'b0;
                 lh <= 1'b0;
-                done <= 1'b0;
+                pronto <= 1'b0;
                 state <= E;
             end
             E : begin
@@ -80,7 +79,7 @@ always @(posedge ck or rst) begin //Clock na borda de subida
                 h <= 1'b0;
                 ls <= 1'b0;
                 lh <= 1'b1;
-                done <= 1'b0;
+                pronto <= 1'b0;
                 state <= F;
             end
             F : begin
@@ -91,7 +90,7 @@ always @(posedge ck or rst) begin //Clock na borda de subida
                 h <= 1'b1;
                 ls <= 1'b0;
                 lh <= 1'b0;
-                done <= 1'b0;
+                pronto <= 1'b0;
                 state <= G;
             end
             G : begin
@@ -102,7 +101,7 @@ always @(posedge ck or rst) begin //Clock na borda de subida
                 h <= 1'b1;
                 ls <= 1'b0;
                 lh <= 1'b1;
-                done <= 1'b0;
+                pronto <= 1'b0;
                 state <= H;
             end
             H : begin
@@ -113,7 +112,7 @@ always @(posedge ck or rst) begin //Clock na borda de subida
                 h <= 1'b0;
                 ls <= 1'b0;
                 lh <= 1'b0;
-                done <= 1'b0;
+                pronto <= 1'b0;
                 state <= I;
             end
             I : begin
@@ -124,7 +123,7 @@ always @(posedge ck or rst) begin //Clock na borda de subida
                 h <= 1'b0;
                 ls <= 1'b1;
                 lh <= 1'b0;
-                done <= 1'b0;
+                pronto <= 1'b0;
                 state <= J;
             end
             J : begin
@@ -135,7 +134,7 @@ always @(posedge ck or rst) begin //Clock na borda de subida
                 h <= 1'b0;
                 ls <= 1'b0;
                 lh <= 1'b0;
-                done <= 1'b1;
+                pronto <= 1'b1;
                 state <= A;
             end
         endcase    

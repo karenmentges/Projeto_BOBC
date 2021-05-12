@@ -8,7 +8,7 @@ module operativo (
     input h,
     input ls,
     input lh,
-    input done,
+    input pronto,
     input [15:0] NX,
     input [15:0] A,
     input [15:0] B,

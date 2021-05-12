@@ -1,20 +1,20 @@
 module projeto(
     input ck,
     input inicio,
-    input pronto,
     input rst,
     input [15:0] X,
     input [15:0] A,
     input [15:0] B,
     input [15:0] C,
     output [15:0] Resultado,
-    output LED
+    output pronto,
+    output overflow
 );
 
-    wire lx, h, ls, lh, done;
+    wire lx, h, ls, lh;
     wire [1:0] m0, m1, m2; 
 
-    controle c(ck, inicio, pronto, rst, lx, m0, m1, m2, h, ls, lh, done);
-    operativo op(ck, rst, lx, m0, m1, m2, h, ls, lh, done, X, A, B, C, Resultado);
+    controle c(ck, inicio, rst, lx, m0, m1, m2, h, ls, lh, pronto);
+    operativo op(ck, rst, lx, m0, m1, m2, h, ls, lh, pronto, X, A, B, C, Resultado);
 
 endmodule
