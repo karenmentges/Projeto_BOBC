@@ -9,36 +9,33 @@ module operativo (
     input ls,
     input lh,
     input done,
-    input [15:0] X,
+    input [15:0] NX,
     input [15:0] A,
     input [15:0] B,
     input [15:0] C,
     output [15:0] Resultado
 );
 
-    reg [15:0] Reg_X;
-    reg [15:0] Reg_S;
-    reg [15:0] Reg_H;
-
+    wire [15:0] RegX, RegS, RegH, res;
     wire [15:0] outm0, outm1, outm2;
+    parameter Zero = 16'b0000000000000000;
 
-    parameter Zero = 15'b0000000000000000;
-
-
-always @(posedge ck or rst) begin //Clock na borda de subida
-    
-    reg R1(rst, X, lx, Reg_X);
+    regg R1(rst, NX, lx, RegX);
 
     mux M0(Zero, A, B, C, m0, outm0);
-    mux M1(outm0, Reg_X, Reg_S, Reg_H, m1, outm1);
-    mux M2(Reg_X, outm0, Reg_S, Reg_H, m2, outm2);
+    mux M1(outm0, RegX, RegS, RegH, m1, outm1);
+    mux M2(RegX, outm0, RegS, RegH, m2, outm2);
     
-    ula U(outm1, outm2, h, Resultado);
+    ula U(outm1, outm2, h, res);
 
-    reg R2(rst, Resultado, ls, Reg_S);
-    reg R3(rst, Resultado, lh, Reg_H);
+    regg R2(rst, res, ls, RegS);
+    regg R3(rst, res, lh, RegH);
+
+    //always @(posedge ck or rst) begin //Clock na borda de subida
+        
     
+    //end
 
-end
+    assign Resultado = RegS;
 
 endmodule

@@ -1,18 +1,18 @@
 module mux(
-    input [15:0] A,
-    input [15:0] B,
-    input [15:0] C,
-    input [15:0] D,
+    input [15:0] a,
+    input [15:0] b,
+    input [15:0] c,
+    input [15:0] d,
     input [1:0] sel,
-    output [15:0] out
+    output reg [15:0] out
 );
 
-    always @ (A or B or C or D or sel) begin
+    always @ (a or b or c or d or sel) begin
         case(sel)
-            2'b00 : out <= A;
-            2'b01 : out <= B;
-            2'b10 : out <= C;
-            2'b11 : out <= D;
+            2'b00 : out = a;
+            2'b01 : out = b;
+            2'b10 : out = c;
+            2'b11 : out = d;
         endcase
     end
 
