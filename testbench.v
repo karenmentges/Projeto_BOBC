@@ -1,10 +1,10 @@
 module testbench;
 
     reg ck = 1'b0, inicio = 1'b0, pronto = 1'b0, rst = 1'b0;
-    parameter [15:0] X = 16'b0000000000000010;
-    parameter [15:0] A = 16'b0000000000000001;
-    parameter [15:0] B = 16'b0000000000000011;
-    parameter [15:0] C = 16'b0000000000000100;
+    parameter [15:0] X = 16'b0000000000010111;
+    parameter [15:0] A = 16'b0000000000100110;
+    parameter [15:0] B = 16'b0000000101001101;
+    parameter [15:0] C = 16'b0001001100100110;
 
     wire [15:0] Resultado;
     wire LED;

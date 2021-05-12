@@ -13,13 +13,14 @@ module controle (
     output reg done
 );
 
-reg [1:0] state = 1'b0; // inicializa em A
+reg [3:0] state = 4'b0000; // inicializa em A
 parameter [3:0] A = 4'b0000, B = 4'b0001, C = 4'b0010, D = 4'b0011, E = 4'b0100, F = 4'b0101, G = 4'b0110, H = 4'b0111, I = 4'b1000, J = 4'b1001;
 
 
 always @(posedge ck or rst) begin //Clock na borda de subida
-    if(rst == 1)
+    if(rst == 1) begin
         state <= A;
+    end
     else begin
         case (state)
             A : begin
@@ -31,7 +32,12 @@ always @(posedge ck or rst) begin //Clock na borda de subida
                 ls <= 1'b0;
                 lh <= 1'b0;
                 done <= 1'b0;
-                state <= B;
+                if(inicio == 1) begin
+                    state <= B;
+                end
+                else begin
+                    state <= A;
+                end
             end
             B : begin
                 lx <= 1'b1; 
