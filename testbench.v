@@ -11,24 +11,22 @@ module testbench;
 
     projeto p(ck, inicio, pronto, rst, X, A, B, C, Resultado, LED);
 
-
     always #1 begin
         ck <= ~ck;
     end
 
     initial begin
         $dumpvars;
-        #1
         inicio <= 0;
         pronto <= 0;
         rst <= 0;
-        #3;
+        #2;
         inicio <= 1;
-        #5;
+        #2;
         inicio <= 0;
-        #19;
+        #18;
         pronto <= 1;
-        #21;
+        #2;
         pronto <= 0;
         rst <= 1;
         $finish;

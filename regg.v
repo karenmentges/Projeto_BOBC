@@ -1,4 +1,5 @@
 module regg(
+    input ck,
     input rst,
     input [15:0] v,
     input l,
@@ -7,7 +8,7 @@ module regg(
 
     parameter Zero = 16'b0000000000000000;
 
-    always @ (rst or l or v) begin
+    always @ (posedge ck) begin
         
         if(rst == 1) begin
             r = Zero;

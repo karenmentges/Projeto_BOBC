@@ -1,5 +1,5 @@
 $date
-	Wed May 12 02:12:56 2021
+	Wed May 12 10:02:52 2021
 $end
 $version
 	Icarus Verilog
@@ -96,18 +96,21 @@ $var wire 16 W a [15:0] $end
 $var reg 16 X out [15:0] $end
 $upscope $end
 $scope module R1 $end
+$var wire 1 # ck $end
 $var wire 1 . l $end
 $var wire 1 & rst $end
 $var wire 16 Y v [15:0] $end
 $var reg 16 Z r [15:0] $end
 $upscope $end
 $scope module R2 $end
+$var wire 1 # ck $end
 $var wire 1 / l $end
 $var wire 1 & rst $end
 $var wire 16 [ v [15:0] $end
 $var reg 16 \ r [15:0] $end
 $upscope $end
 $scope module R3 $end
+$var wire 1 # ck $end
 $var wire 1 0 l $end
 $var wire 1 & rst $end
 $var wire 16 ] v [15:0] $end
@@ -192,24 +195,13 @@ bx "
 z!
 $end
 #1
-b10 @
-b10 [
-b10 ]
-b10 a
 b1 B
 b1 R
 b1 _
-b10 A
-b10 X
-b10 `
 b1 C
 b1 L
 b1 M
 b1 S
-b10 D
-b10 Q
-b10 W
-b10 Z
 b10 7
 11
 b1 -
@@ -220,18 +212,26 @@ b1 K
 1#
 #2
 0#
+1$
 #3
-b10 F
-b10 O
-b10 U
-b10 ^
 b11 7
 10
 0.
+b10 @
+b10 [
+b10 ]
+b10 a
+b10 A
+b10 X
+b10 `
+b10 D
+b10 Q
+b10 W
+b10 Z
 1#
 #4
 0#
-1$
+0$
 #5
 b11 B
 b11 R
@@ -255,6 +255,10 @@ b10 -
 b10 4
 b10 =
 b10 K
+b10 F
+b10 O
+b10 U
+b10 ^
 1#
 #6
 0#
@@ -302,7 +306,6 @@ b1 =
 b1 K
 1.
 1#
-0$
 #10
 0#
 #11
@@ -417,6 +420,7 @@ b10 K
 1#
 #22
 0#
+1%
 #23
 b10 @
 b10 [
@@ -440,269 +444,7 @@ b0 =
 b0 K
 1#
 #24
-0#
-#25
-b1 B
-b1 R
-b1 _
-b10 @
-b10 [
-b10 ]
-b10 a
-b1 C
-b1 L
-b1 M
-b1 S
-b10 7
-11
-b1 -
-b1 4
-b1 =
-b1 K
-1.
-1#
-#26
-0#
-#27
-b11 7
-10
-0.
-1#
-#28
-0#
-1%
-#29
-b11 B
-b11 R
-b11 _
-b101 @
-b101 [
-b101 ]
-b101 a
-b11 C
-b11 L
-b11 M
-b11 S
 b0 7
-00
-01
-b11 +
-b11 6
-b11 ?
-b11 T
-b10 -
-b10 4
-b10 =
-b10 K
-1#
-#30
 0#
-#31
-b10 @
-b10 [
-b10 ]
-b10 a
-b0 B
-b0 R
-b0 _
-b0 C
-b0 L
-b0 M
-b0 S
-b1 7
-b0 +
-b0 6
-b0 ?
-b0 T
-b0 -
-b0 4
-b0 =
-b0 K
-1#
-#32
-0#
-#33
-b1 B
-b1 R
-b1 _
-b10 @
-b10 [
-b10 ]
-b10 a
-b1 C
-b1 L
-b1 M
-b1 S
-b10 7
-11
-b1 -
-b1 4
-b1 =
-b1 K
-1.
-1#
-#34
-0#
-#35
-b11 7
-10
-0.
-1#
-#36
-0#
-#37
-b11 B
-b11 R
-b11 _
-b101 @
-b101 [
-b101 ]
-b101 a
-b11 C
-b11 L
-b11 M
-b11 S
-b0 7
-00
-01
-b11 +
-b11 6
-b11 ?
-b11 T
-b10 -
-b10 4
-b10 =
-b10 K
-1#
-#38
-0#
-#39
-b10 @
-b10 [
-b10 ]
-b10 a
-b0 B
-b0 R
-b0 _
-b0 C
-b0 L
-b0 M
-b0 S
-b1 7
-b0 +
-b0 6
-b0 ?
-b0 T
-b0 -
-b0 4
-b0 =
-b0 K
-1#
-#40
-0#
-#41
-b1 B
-b1 R
-b1 _
-b10 @
-b10 [
-b10 ]
-b10 a
-b1 C
-b1 L
-b1 M
-b1 S
-b10 7
-11
-b1 -
-b1 4
-b1 =
-b1 K
-1.
-1#
-#42
-0#
-#43
-b11 7
-10
-0.
-1#
-#44
-0#
-#45
-b11 B
-b11 R
-b11 _
-b101 @
-b101 [
-b101 ]
-b101 a
-b11 C
-b11 L
-b11 M
-b11 S
-b0 7
-00
-01
-b11 +
-b11 6
-b11 ?
-b11 T
-b10 -
-b10 4
-b10 =
-b10 K
-1#
-#46
-0#
-#47
-b10 @
-b10 [
-b10 ]
-b10 a
-b0 B
-b0 R
-b0 _
-b0 C
-b0 L
-b0 M
-b0 S
-b1 7
-b0 +
-b0 6
-b0 ?
-b0 T
-b0 -
-b0 4
-b0 =
-b0 K
-1#
-#48
-0#
-#49
-b0 7
-b0 @
-b0 [
-b0 ]
-b0 a
-b0 A
-b0 X
-b0 `
-b0 D
-b0 Q
-b0 W
-b0 Z
-b0 "
-b0 3
-b0 <
-b0 E
-b0 P
-b0 V
-b0 \
-b0 F
-b0 O
-b0 U
-b0 ^
-1#
 1&
 0%
