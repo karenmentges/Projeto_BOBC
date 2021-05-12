@@ -1,5 +1,5 @@
 $date
-	Wed May 12 10:02:52 2021
+	Wed May 12 10:07:05 2021
 $end
 $version
 	Icarus Verilog
@@ -19,30 +19,30 @@ $var wire 16 ' A [15:0] $end
 $var wire 16 ( B [15:0] $end
 $var wire 16 ) C [15:0] $end
 $var wire 1 ! LED $end
-$var wire 16 * X [15:0] $end
+$var wire 16 * Resultado [15:0] $end
+$var wire 16 + X [15:0] $end
 $var wire 1 # ck $end
 $var wire 1 $ inicio $end
 $var wire 1 % pronto $end
 $var wire 1 & rst $end
-$var wire 2 + m2 [1:0] $end
-$var wire 2 , m1 [1:0] $end
-$var wire 2 - m0 [1:0] $end
-$var wire 1 . lx $end
-$var wire 1 / ls $end
-$var wire 1 0 lh $end
-$var wire 1 1 h $end
-$var wire 1 2 done $end
-$var wire 16 3 Resultado [15:0] $end
+$var wire 2 , m2 [1:0] $end
+$var wire 2 - m1 [1:0] $end
+$var wire 2 . m0 [1:0] $end
+$var wire 1 / lx $end
+$var wire 1 0 ls $end
+$var wire 1 1 lh $end
+$var wire 1 2 h $end
+$var wire 1 3 done $end
 $scope module c $end
 $var wire 1 # ck $end
 $var wire 1 $ inicio $end
 $var wire 1 % pronto $end
 $var wire 1 & rst $end
-$var reg 1 2 done $end
-$var reg 1 1 h $end
-$var reg 1 0 lh $end
-$var reg 1 / ls $end
-$var reg 1 . lx $end
+$var reg 1 3 done $end
+$var reg 1 2 h $end
+$var reg 1 1 lh $end
+$var reg 1 0 ls $end
+$var reg 1 / lx $end
 $var reg 2 4 m0 [1:0] $end
 $var reg 2 5 m1 [1:0] $end
 $var reg 2 6 m2 [1:0] $end
@@ -55,11 +55,11 @@ $var wire 16 : C [15:0] $end
 $var wire 16 ; NX [15:0] $end
 $var wire 16 < Resultado [15:0] $end
 $var wire 1 # ck $end
-$var wire 1 2 done $end
-$var wire 1 1 h $end
-$var wire 1 0 lh $end
-$var wire 1 / ls $end
-$var wire 1 . lx $end
+$var wire 1 3 done $end
+$var wire 1 2 h $end
+$var wire 1 1 lh $end
+$var wire 1 0 ls $end
+$var wire 1 / lx $end
 $var wire 2 = m0 [1:0] $end
 $var wire 2 > m1 [1:0] $end
 $var wire 2 ? m2 [1:0] $end
@@ -97,27 +97,27 @@ $var reg 16 X out [15:0] $end
 $upscope $end
 $scope module R1 $end
 $var wire 1 # ck $end
-$var wire 1 . l $end
+$var wire 1 / l $end
 $var wire 1 & rst $end
 $var wire 16 Y v [15:0] $end
 $var reg 16 Z r [15:0] $end
 $upscope $end
 $scope module R2 $end
 $var wire 1 # ck $end
-$var wire 1 / l $end
+$var wire 1 0 l $end
 $var wire 1 & rst $end
 $var wire 16 [ v [15:0] $end
 $var reg 16 \ r [15:0] $end
 $upscope $end
 $scope module R3 $end
 $var wire 1 # ck $end
-$var wire 1 0 l $end
+$var wire 1 1 l $end
 $var wire 1 & rst $end
 $var wire 16 ] v [15:0] $end
 $var reg 16 ^ r [15:0] $end
 $upscope $end
 $scope module U $end
-$var wire 1 1 h $end
+$var wire 1 2 h $end
 $var wire 16 _ v1 [15:0] $end
 $var wire 16 ` v2 [15:0] $end
 $var wire 16 a r [15:0] $end
@@ -174,16 +174,16 @@ b1 7
 b0 6
 b0 5
 b0 4
-bx 3
+03
 02
 01
 00
 0/
-0.
+b0 .
 b0 -
 b0 ,
-b0 +
-b10 *
+b10 +
+bx *
 b100 )
 b11 (
 b1 '
@@ -203,20 +203,20 @@ b1 L
 b1 M
 b1 S
 b10 7
-11
-b1 -
+12
+b1 .
 b1 4
 b1 =
 b1 K
-1.
+1/
 1#
 #2
 0#
 1$
 #3
 b11 7
-10
-0.
+11
+0/
 b10 @
 b10 [
 b10 ]
@@ -245,13 +245,13 @@ b11 L
 b11 M
 b11 S
 b0 7
-00
 01
-b11 +
+02
+b11 ,
 b11 6
 b11 ?
 b11 T
-b10 -
+b10 .
 b10 4
 b10 =
 b10 K
@@ -275,11 +275,11 @@ b0 L
 b0 M
 b0 S
 b1 7
-b0 +
+b0 ,
 b0 6
 b0 ?
 b0 T
-b0 -
+b0 .
 b0 4
 b0 =
 b0 K
@@ -299,19 +299,19 @@ b1 L
 b1 M
 b1 S
 b10 7
-11
-b1 -
+12
+b1 .
 b1 4
 b1 =
 b1 K
-1.
+1/
 1#
 #10
 0#
 #11
 b11 7
-10
-0.
+11
+0/
 1#
 #12
 0#
@@ -328,13 +328,13 @@ b11 L
 b11 M
 b11 S
 b0 7
-00
 01
-b11 +
+02
+b11 ,
 b11 6
 b11 ?
 b11 T
-b10 -
+b10 .
 b10 4
 b10 =
 b10 K
@@ -354,11 +354,11 @@ b0 L
 b0 M
 b0 S
 b1 7
-b0 +
+b0 ,
 b0 6
 b0 ?
 b0 T
-b0 -
+b0 .
 b0 4
 b0 =
 b0 K
@@ -378,19 +378,19 @@ b1 L
 b1 M
 b1 S
 b10 7
-11
-b1 -
+12
+b1 .
 b1 4
 b1 =
 b1 K
-1.
+1/
 1#
 #18
 0#
 #19
 b11 7
-10
-0.
+11
+0/
 1#
 #20
 0#
@@ -407,13 +407,13 @@ b11 L
 b11 M
 b11 S
 b0 7
-00
 01
-b11 +
+02
+b11 ,
 b11 6
 b11 ?
 b11 T
-b10 -
+b10 .
 b10 4
 b10 =
 b10 K
@@ -434,11 +434,11 @@ b0 L
 b0 M
 b0 S
 b1 7
-b0 +
+b0 ,
 b0 6
 b0 ?
 b0 T
-b0 -
+b0 .
 b0 4
 b0 =
 b0 K
