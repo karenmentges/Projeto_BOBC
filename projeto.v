@@ -11,10 +11,10 @@ module projeto(
     output LED
 );
 
-wire lx, h, ls, lh, done;
-wire [1:0] m0, m1, m2; 
+    wire lx, h, ls, lh, done;
+    wire [1:0] m0, m1, m2; 
 
-controle c(ck, inicio, pronto, rst, lx, m0, m1, m2, h, ls, lh, done);
-operativo op(ck, rst, lx, m0, m1, m2, h, ls, lh, done, X, A, B, C, Resultado);
+    controle c(ck, inicio, pronto, rst, lx, m0, m1, m2, h, ls, lh, done);
+    operativo op(ck, rst, lx, m0, m1, m2, h, ls, lh, done, X, A, B, C, Resultado);
 
 endmodule

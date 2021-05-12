@@ -31,10 +31,6 @@ module operativo (
     regg R2(ck, rst, res, ls, RegS);
     regg R3(ck, rst, res, lh, RegH);
 
-    //always @(posedge ck or rst) begin //Clock na borda de subida
-    
-    //end
-
     assign Resultado = RegS;
 
 endmodule
