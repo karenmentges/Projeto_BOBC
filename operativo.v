@@ -19,6 +19,7 @@ module operativo (
 
     wire [15:0] RegX, RegS, RegH, res;
     wire [15:0] outm0, outm1, outm2;
+    
     parameter Zero = 16'b0000000000000000;
 
     regg R1(ck, rst, NX, lx, RegX);
