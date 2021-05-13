@@ -26,7 +26,7 @@ module testbench;
         inicio <= 1;
         #2;
         inicio <= 0;
-        #25;
+        #20;
         rst <= 1;
         #2
         rst <= 0;
