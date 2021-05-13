@@ -8,13 +8,13 @@ module operativo (
     input h,
     input ls,
     input lh,
-    input pronto,
-    input [15:0] NX,
+    input [15:0] X,
     input [15:0] A,
     input [15:0] B,
     input [15:0] C,
+    input pronto,
     output overflow,
-    output [15:0] Resultado
+    output [15:0] resultado
 );
 
     wire [15:0] RegX, RegS, RegH, res;
@@ -22,17 +22,17 @@ module operativo (
     
     parameter Zero = 16'b0000000000000000;
 
-    regg R1(ck, rst, NX, lx, RegX);
+    regg R1(ck, rst, X, lx, RegX);
 
     mux M0(Zero, A, B, C, m0, outm0);
     mux M1(outm0, RegX, RegS, RegH, m1, outm1);
     mux M2(RegX, outm0, RegS, RegH, m2, outm2);
     
     ula U(outm1, outm2, h, overflow, res);
+    
+    regg R2(ck, rst, res, lh, RegH);
+    regg R3(ck, rst, res, ls, RegS);
 
-    regg R2(ck, rst, res, ls, RegS);
-    regg R3(ck, rst, res, lh, RegH);
-
-    assign Resultado = RegS;
+    assign resultado = RegS;
 
 endmodule

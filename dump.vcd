@@ -1,5 +1,5 @@
 $date
-	Wed May 12 21:49:14 2021
+	Thu May 13 11:06:01 2021
 $end
 $version
 	Icarus Verilog
@@ -8,9 +8,9 @@ $timescale
 	1s
 $end
 $scope module testbench $end
-$var wire 1 ! pronto $end
-$var wire 1 " overflow $end
-$var wire 16 # Resultado [15:0] $end
+$var wire 16 ! resultado [15:0] $end
+$var wire 1 " pronto $end
+$var wire 1 # overflow $end
 $var reg 1 $ ck $end
 $var reg 1 % inicio $end
 $var reg 1 & rst $end
@@ -22,48 +22,48 @@ $var wire 16 * X [15:0] $end
 $var wire 1 $ ck $end
 $var wire 1 % inicio $end
 $var wire 1 & rst $end
-$var wire 1 ! pronto $end
-$var wire 1 " overflow $end
-$var wire 2 + m2 [1:0] $end
-$var wire 2 , m1 [1:0] $end
-$var wire 2 - m0 [1:0] $end
-$var wire 1 . lx $end
-$var wire 1 / ls $end
-$var wire 1 0 lh $end
-$var wire 1 1 h $end
-$var wire 16 2 Resultado [15:0] $end
+$var wire 16 + resultado [15:0] $end
+$var wire 1 " pronto $end
+$var wire 1 # overflow $end
+$var wire 2 , m2 [1:0] $end
+$var wire 2 - m1 [1:0] $end
+$var wire 2 . m0 [1:0] $end
+$var wire 1 / lx $end
+$var wire 1 0 ls $end
+$var wire 1 1 lh $end
+$var wire 1 2 h $end
 $scope module c $end
 $var wire 1 $ ck $end
 $var wire 1 % inicio $end
 $var wire 1 & rst $end
-$var reg 1 1 h $end
-$var reg 1 0 lh $end
-$var reg 1 / ls $end
-$var reg 1 . lx $end
+$var reg 1 2 h $end
+$var reg 1 1 lh $end
+$var reg 1 0 ls $end
+$var reg 1 / lx $end
 $var reg 2 3 m0 [1:0] $end
 $var reg 2 4 m1 [1:0] $end
 $var reg 2 5 m2 [1:0] $end
-$var reg 1 ! pronto $end
+$var reg 1 " pronto $end
 $var reg 4 6 state [3:0] $end
 $upscope $end
 $scope module op $end
 $var wire 16 7 A [15:0] $end
 $var wire 16 8 B [15:0] $end
 $var wire 16 9 C [15:0] $end
-$var wire 16 : NX [15:0] $end
-$var wire 16 ; Resultado [15:0] $end
+$var wire 16 : X [15:0] $end
 $var wire 1 $ ck $end
-$var wire 1 1 h $end
-$var wire 1 0 lh $end
-$var wire 1 / ls $end
-$var wire 1 . lx $end
-$var wire 2 < m0 [1:0] $end
-$var wire 2 = m1 [1:0] $end
-$var wire 2 > m2 [1:0] $end
-$var wire 1 ! pronto $end
+$var wire 1 2 h $end
+$var wire 1 1 lh $end
+$var wire 1 0 ls $end
+$var wire 1 / lx $end
+$var wire 2 ; m0 [1:0] $end
+$var wire 2 < m1 [1:0] $end
+$var wire 2 = m2 [1:0] $end
+$var wire 1 " pronto $end
+$var wire 16 > resultado [15:0] $end
 $var wire 1 & rst $end
 $var wire 16 ? res [15:0] $end
-$var wire 1 " overflow $end
+$var wire 1 # overflow $end
 $var wire 16 @ outm2 [15:0] $end
 $var wire 16 A outm1 [15:0] $end
 $var wire 16 B outm0 [15:0] $end
@@ -96,30 +96,30 @@ $var reg 16 W out [15:0] $end
 $upscope $end
 $scope module R1 $end
 $var wire 1 $ ck $end
-$var wire 1 . l $end
+$var wire 1 / l $end
 $var wire 1 & rst $end
 $var wire 16 X v [15:0] $end
 $var reg 16 Y r [15:0] $end
 $upscope $end
 $scope module R2 $end
 $var wire 1 $ ck $end
-$var wire 1 / l $end
+$var wire 1 0 l $end
 $var wire 1 & rst $end
 $var wire 16 Z v [15:0] $end
 $var reg 16 [ r [15:0] $end
 $upscope $end
 $scope module R3 $end
 $var wire 1 $ ck $end
-$var wire 1 0 l $end
+$var wire 1 1 l $end
 $var wire 1 & rst $end
 $var wire 16 \ v [15:0] $end
 $var reg 16 ] r [15:0] $end
 $upscope $end
 $scope module U $end
-$var wire 1 1 h $end
+$var wire 1 2 h $end
 $var wire 16 ^ v1 [15:0] $end
 $var wire 16 _ v2 [15:0] $end
-$var reg 1 " overflow $end
+$var reg 1 # overflow $end
 $var reg 16 ` r [15:0] $end
 $upscope $end
 $upscope $end
@@ -162,10 +162,10 @@ b0 B
 b0 A
 bx @
 bx ?
-b0 >
+bx >
 b0 =
 b0 <
-bx ;
+b0 ;
 b10111 :
 b1001100100110 9
 b101001101 8
@@ -174,14 +174,14 @@ b0 6
 b0 5
 b0 4
 b0 3
-bx 2
+02
 01
 00
 0/
-0.
+b0 .
 b0 -
 b0 ,
-b0 +
+bx +
 b10111 *
 b1001100100110 )
 b101001101 (
@@ -189,9 +189,9 @@ b100110 '
 0&
 0%
 0$
-bx #
-x"
-0!
+x#
+0"
+bx !
 $end
 #1
 1$
@@ -213,20 +213,20 @@ b100110 K
 b100110 L
 b100110 R
 b10 6
-11
-b1 -
+12
+b1 .
 b1 3
-b1 <
+b1 ;
 b1 J
-1.
+1/
 1$
 #6
 0$
 #7
 b11 6
-10
-0.
-0"
+11
+0/
+0#
 b1101101010 ?
 b1101101010 Z
 b1101101010 \
@@ -257,15 +257,15 @@ b101001101 K
 b101001101 L
 b101001101 R
 b100 6
-00
 01
-b11 +
+02
+b11 ,
 b11 5
-b11 >
+b11 =
 b11 S
-b10 -
+b10 .
 b10 3
-b10 <
+b10 ;
 b10 J
 b1101101010 E
 b1101101010 N
@@ -276,7 +276,7 @@ b1101101010 ]
 0$
 #11
 b101 6
-10
+11
 1$
 #12
 0$
@@ -289,15 +289,15 @@ b0 K
 b0 L
 b0 R
 b110 6
-00
-11
-b1 ,
+01
+12
+b1 -
 b1 4
-b1 =
+b1 <
 b1 M
-b0 -
+b0 .
 b0 3
-b0 <
+b0 ;
 b0 J
 b110110001110001 ?
 b110110001110001 Z
@@ -315,7 +315,7 @@ b10010110111 ]
 0$
 #15
 b111 6
-10
+11
 1$
 #16
 0$
@@ -328,17 +328,17 @@ b1001100100110 K
 b1001100100110 L
 b1001100100110 R
 b1000 6
-00
 01
-b0 ,
+02
+b0 -
 b0 4
-b0 =
+b0 <
 b0 M
-b11 -
+b11 .
 b11 3
-b11 <
+b11 ;
 b11 J
-0"
+0#
 b111111110010111 ?
 b111111110010111 Z
 b111111110010111 \
@@ -355,7 +355,7 @@ b110110001110001 ]
 0$
 #19
 b1001 6
-1/
+10
 1$
 #20
 0$
@@ -375,19 +375,19 @@ b0 K
 b0 L
 b0 R
 b0 6
-1!
-0/
-b0 +
+1"
+00
+b0 ,
 b0 5
-b0 >
+b0 =
 b0 S
-b0 -
+b0 .
 b0 3
-b0 <
+b0 ;
 b0 J
-b111111110010111 #
-b111111110010111 2
-b111111110010111 ;
+b111111110010111 !
+b111111110010111 +
+b111111110010111 >
 b111111110010111 D
 b111111110010111 O
 b111111110010111 U
@@ -396,7 +396,7 @@ b111111110010111 [
 #22
 0$
 #23
-0!
+0"
 1$
 #24
 0$
@@ -420,9 +420,9 @@ b0 C
 b0 P
 b0 V
 b0 Y
-b0 #
-b0 2
-b0 ;
+b0 !
+b0 +
+b0 >
 b0 D
 b0 O
 b0 U
