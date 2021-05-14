@@ -15,7 +15,6 @@ module controle (
 reg [3:0] state = 4'b0000; // inicializa em A
 parameter [3:0] A = 4'b0000, B = 4'b0001, C = 4'b0010, D = 4'b0011, E = 4'b0100, F = 4'b0101, G = 4'b0110, H = 4'b0111, I = 4'b1000, J = 4'b1001;
 
-
 always @(posedge ck or rst) begin //Clock na borda de subida
     if(rst == 1) begin
         state <= A;
