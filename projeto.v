@@ -11,7 +11,7 @@ module projeto(
     output [15:0] resultado
 );
 
-    wire lx, h, ls, lh;
+    wire lx, h, ls, lh, over;
     wire [1:0] m0, m1, m2; 
 
     controle c(ck, inicio, rst, lx, m0, m1, m2, h, ls, lh, pronto);

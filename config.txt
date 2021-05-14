@@ -1,3 +1,3 @@
-iverilog testbench.v projeto.v controle.v operativo.v mux.v regg.v ula.v
+iverilog testbench.v projeto.v controle.v operativo.v mux.v regg.v regg_uni.v ula.v
 ./a.out
 gtkwave dump.vcd
